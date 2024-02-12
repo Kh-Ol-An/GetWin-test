@@ -1,0 +1,14 @@
+@import '../../styles/setup/variables.sass'
+@import '../../styles/setup/mixins.sass'
+
+.preloader
+    @include flex-center
+    @include page
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: $main-z-index
+    background-color: $black-color
+    opacity: 0.7

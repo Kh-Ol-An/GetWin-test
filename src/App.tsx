@@ -1,21 +1,15 @@
-import React, { FC, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './store/hook';
-import { getPokemonList } from './store/pokemon/thunks';
+import React, { FC } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Pokemon from './pages/Pokemon/Pokemon';
 
 const App: FC = () => {
-    const dispatch = useAppDispatch();
-    const state = useAppSelector((state) => state);
-
-    console.log('state: ', state);
-
-    useEffect(() => {
-        dispatch(getPokemonList());
-    }, []);
 
     return (
-        <div>
-            Get Win
-        </div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:name" element={<Pokemon />} />
+        </Routes>
     );
 }
 

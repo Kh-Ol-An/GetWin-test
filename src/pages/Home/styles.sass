@@ -1,0 +1,19 @@
+@import '../../styles/setup/variables.sass'
+@import '../../styles/setup/mixins.sass'
+
+.home-page
+    @include flex-column
+    @include page
+
+    .list
+        @include grid(5)
+
+        .card
+            padding: 20px
+            width: 250px
+            display: flex
+            color: $black-color
+            font-size: 16px
+            text-transform: capitalize
+            text-decoration: none
+

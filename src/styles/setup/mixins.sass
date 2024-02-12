@@ -1,0 +1,27 @@
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-column
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    gap: 20px
+
+@mixin flex-evenly
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    gap: 20px
+
+@mixin grid($columns)
+    display: grid
+    grid-template-columns: repeat($columns, 1fr)
+    gap: 20px
+
+@mixin page
+    width: 100%
+    height: 100svh
+    padding: 20px

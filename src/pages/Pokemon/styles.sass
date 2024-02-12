@@ -1,0 +1,26 @@
+@import '../../styles/setup/variables.sass'
+@import '../../styles/setup/mixins.sass'
+
+.pokemon-page
+    @include page
+
+    .card
+        height: 100%
+
+        .content
+            @include flex-column
+
+            .head
+                @include flex-evenly
+                width: 100%
+
+                .title
+                    font-weight: bold
+                    color: $black-color
+                    text-transform: capitalize
+
+            .body
+                @include flex-evenly
+
+                .list
+                    @include grid(4)
