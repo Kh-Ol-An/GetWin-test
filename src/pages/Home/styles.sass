@@ -5,15 +5,56 @@
     @include flex-column
     @include page
 
+    .title
+        @include title
+
     .list
-        @include grid(5)
+        @include grid(1)
+        @include scrollable-area-y
+        height: calc(100svh - 13.8em)
+
+        @media screen and (min-width: 768px)
+            @include grid(2)
+
+        @media screen and (min-width: 1024px)
+            @include grid(3)
+
+        @media screen and (min-width: 1280px)
+            @include grid(4)
+            height: calc(100svh - 12.9em)
+
+        @media screen and (min-width: 1536px)
+            @include grid(5)
 
         .card
-            padding: 20px
-            width: 250px
-            display: flex
-            color: $black-color
-            font-size: 16px
-            text-transform: capitalize
-            text-decoration: none
+            height: 100%
+
+            .link
+                @include flex-center
+                padding: 1.6em
+                width: 100%
+                height: 100%
+                text-decoration: none
+
+                @media screen and (min-width: 768px)
+                    padding: 2em
+                    width: 25em
+
+                img
+                    width: 2.4em
+                    height: 2.4em
+                    object-fit: contain
+
+                    @media screen and (min-width: 1280px)
+                        width: 4.4em
+                        height: 4.4em
+
+                span
+                    color: $black-color
+                    font-size: 1.6em
+                    text-transform: capitalize
+
+                    @media screen and (min-width: 1280px)
+                        font-size: 2em
+
 

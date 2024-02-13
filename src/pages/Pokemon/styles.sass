@@ -5,22 +5,79 @@
     @include page
 
     .card
+        position: relative
         height: 100%
+
+        .back
+            position: absolute
+            top: 0
+            left: 0
 
         .content
             @include flex-column
 
             .head
-                @include flex-evenly
+                @include flex-column
                 width: 100%
 
+                @media screen and (min-width: 1280px)
+                    @include flex-evenly
+
+                img
+                    width: 25.6em
+                    height: 25.6em
+                    object-fit: contain
+
                 .title
-                    font-weight: bold
-                    color: $black-color
-                    text-transform: capitalize
+                    @include title
+
+                .head-content
+                    @include flex-column
+                    gap: 0.2em
+                    width: 100%
 
             .body
-                @include flex-evenly
+                @include flex-column
+                gap: 0.6em
+                width: 100%
 
-                .list
+            .sub-title
+                font-size: 1.8em
+                line-height: 1.5
+                font-weight: bold
+
+            .type-list
+                @include flex-center
+                @include scrollable-area-x
+                width: calc(100vw - 6.4em)
+
+            .text
+                font-size: 1.4em
+                line-height: 1.5
+
+            .move-list
+                @include grid(2)
+                @include scrollable-area-y
+                height: calc(100svh - 48.7em)
+
+                @media screen and (min-width: 414px)
+                    @include grid(3)
+
+                @media screen and (min-width: 640px)
                     @include grid(4)
+
+                @media screen and (min-width: 768px)
+                    height: calc(100svh - 54.4em)
+
+                @media screen and (min-width: 1024px)
+                    @include grid(5)
+
+                @media screen and (min-width: 1280px)
+                    @include grid(6)
+
+                @media screen and (min-width: 1536px)
+                    @include grid(7)
+
+                @media screen and (min-width: 1920px)
+                    @include grid(8)
+

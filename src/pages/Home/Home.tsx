@@ -10,6 +10,7 @@ const POKEMON_LIMIT_ON_PAGE = 20;
 
 const Home: FC = () => {
     const [page, setPage] = useState(1);
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
     const { pokemonPage } = useAppSelector((state) => state);
 
@@ -27,16 +28,32 @@ const Home: FC = () => {
         dispatch(getPokemonList(getPokemonListParams));
     }, [page]);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <div className="home-page">
-            <Typography variant="h1">Pokemon List</Typography>
+            <Typography className="title" variant="h1">Pokemon List</Typography>
 
             {pokemonPage.page && pokemonPage.page.results.length > 0 && (
                 <ul className="list">
                     {pokemonPage.page.results.map((pokemon) => (
                         <li key={pokemon.url}>
-                            <Card>
-                                <Link to={pokemon.name} className="card">{pokemon.name}</Link>
+                            <Card className="card">
+                                <Link to={pokemon.name} className="link">
+                                    <img
+                                        src={`https://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
+                                        alt={`pokemon-${pokemon.name}`}
+                                    />
+                                    <span>{pokemon.name}</span>
+                                </Link>
                             </Card>
                         </li>
                     ))}
@@ -48,9 +65,10 @@ const Home: FC = () => {
                     <Pagination
                         page={page}
                         count={Math.ceil(pokemonPage.page?.count / POKEMON_LIMIT_ON_PAGE)}
-                        boundaryCount={2}
-                        showFirstButton
-                        showLastButton
+                        boundaryCount={windowWidth > 767 ? 2 : 1}
+                        siblingCount={windowWidth > 767 ? 1 : 0}
+                        showFirstButton={windowWidth > 767}
+                        showLastButton={windowWidth > 767}
                         onChange={handleChangePage}
                     />
                 </Stack>
