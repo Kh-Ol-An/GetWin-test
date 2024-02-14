@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GetWin-test/static/css/main.8cee63be.css",
+    "main.js": "/GetWin-test/static/js/main.e4f38289.js",
+    "index.html": "/GetWin-test/index.html",
+    "main.8cee63be.css.map": "/GetWin-test/static/css/main.8cee63be.css.map",
+    "main.e4f38289.js.map": "/GetWin-test/static/js/main.e4f38289.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8cee63be.css",
+    "static/js/main.e4f38289.js"
+  ]
+}
