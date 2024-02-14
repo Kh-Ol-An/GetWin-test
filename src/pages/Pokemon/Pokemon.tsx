@@ -20,7 +20,7 @@ const Pokemon: FC = () => {
 
     const handleChooseType = async (type: IType['type']['name']) => {
         await dispatch(addPokemonType(type));
-        navigate('/');
+        navigate('/GetWin-test');
     };
 
     useEffect(() => {

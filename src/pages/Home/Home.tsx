@@ -35,7 +35,7 @@ const Home: FC = () => {
     const dispatch = useAppDispatch();
 
     const handleSearch = () => {
-        navigate(`/${search.toLowerCase()}`)
+        navigate(`/GetWin-test/${search.toLowerCase()}`)
     };
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -129,7 +129,7 @@ const Home: FC = () => {
                     {pokemonPage.page.results.map((pokemon) => (
                         <li key={pokemon.name}>
                             <Card className="card">
-                                <Link to={pokemon.name} className="link">
+                                <Link to={`/GetWin-test/${pokemon.name}`} className="link">
                                     <img
                                         src={`https://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
                                         alt={`pokemon-${pokemon.name}`}

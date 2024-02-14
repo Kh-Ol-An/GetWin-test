@@ -7,8 +7,8 @@ const App: FC = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/:name" element={<Pokemon />} />
+            <Route path="/GetWin-test" element={<Home />} />
+            <Route path="/GetWin-test/:name" element={<Pokemon />} />
         </Routes>
     );
 }
