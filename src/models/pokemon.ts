@@ -1,13 +1,13 @@
-interface IType {
-    type: {
-        name: string;
-    };
+export interface IName {
+    name: string;
+}
+
+export interface IType {
+    type: IName;
 }
 
 interface IMove {
-    move: {
-        name: string;
-    };
+    move: IName;
 }
 
 interface ISprites {
@@ -19,24 +19,20 @@ interface ISprites {
     };
 }
 
-export interface IDetailPokemon {
+export interface IDetailPokemon extends IName {
     id: number;
-    name: string;
     sprites: ISprites;
     moves: IMove[];
     types: IType[];
 }
 
-export interface IPokemon {
-    name: string;
-    url: string;
+export interface IPokemonByType {
+    pokemon: IName;
 }
 
 export interface IPokemonPage {
-    count: number;
-    next: string;
-    previous: string;
-    results: IPokemon[];
+    count?: number;
+    results: IName[];
 }
 
 export interface IGetPokemonListParams {

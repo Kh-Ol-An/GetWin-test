@@ -27,6 +27,7 @@ const pokemonSlice = createSlice({
             .addCase(getPokemon.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.error.message || 'Unknown error';
+                state.detail = null;
             })
             .addCase(getPokemon.fulfilled, (state, action) => {
                 state.isLoading = false;

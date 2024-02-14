@@ -3,59 +3,60 @@
 
 .pokemon-page
     @include page
+    @include flex-center
 
     .card
         position: relative
         height: 100%
 
-        .back
-            position: absolute
-            top: 0
-            left: 0
+    .back
+        position: absolute
+        top: 0
+        left: 0
 
-        .content
+    .content
+        @include flex-column
+
+        .head
             @include flex-column
+            width: 100%
 
-            .head
+            @media screen and (min-width: 1280px)
+                @include flex-evenly
+
+            img
+                width: 25.6em
+                height: 25.6em
+                object-fit: contain
+
+            .title
+                @include title
+
+            .head-content
                 @include flex-column
+                gap: 0.2em
                 width: 100%
 
-                @media screen and (min-width: 1280px)
-                    @include flex-evenly
+        .body
+            @include flex-column
+            gap: 0.6em
+            width: 100%
 
-                img
-                    width: 25.6em
-                    height: 25.6em
-                    object-fit: contain
+        .sub-title
+            font-size: 1.8em
+            line-height: 1.5
+            font-weight: bold
 
-                .title
-                    @include title
+        .type-list
+            @include flex-center
+            @include scrollable-area-x
+            width: calc(100vw - 6.4em)
 
-                .head-content
-                    @include flex-column
-                    gap: 0.2em
-                    width: 100%
+        .text
+            font-size: 1.4em
+            line-height: 1.5
 
-            .body
-                @include flex-column
-                gap: 0.6em
-                width: 100%
-
-            .sub-title
-                font-size: 1.8em
-                line-height: 1.5
-                font-weight: bold
-
-            .type-list
-                @include flex-center
-                @include scrollable-area-x
-                width: calc(100vw - 6.4em)
-
-            .text
-                font-size: 1.4em
-                line-height: 1.5
-
-            .move-list
+        .move-list
                 @include grid(2)
                 @include scrollable-area-y
                 height: calc(100svh - 48.7em)
